@@ -38,13 +38,11 @@
 
 \title{Build Data Race Detection Finite State Machine Model via LLVM IR load/store Instruction }
 
-
+\author{Haoxin Tu}
+\email{trovato@corporation.com}
 \author{Zhide Zhou}
 
-%\authornote{Both authors contributed equally to this research.}
-\email{trovato@corporation.com}
 
-\author{Haoxin Tu}
 \authornote{Both authors contributed equally to this research.}
 \email{trovato@corporation.com}
 %\orcid{1234-5678-9012}
@@ -77,17 +75,14 @@
 
 \noindent{\textbf{ABSTRACT}}
 
-A clear and well-documented \LaTeX\ document is presented as an
-article formatted for publication by ACM in a conference proceedings
-or journal publication. Based on the ``acmart'' document class, this
-article presents and explains many of the common variations, as well
-as many of the formatting elements an author may use in the
-preparation of the documentation of their work.
+It is especially important to detect concurrent competition caused by interrupts since interrupt-driven embedded software is widely used in safety critical systems such as aerospace, rail transit, and medical equipment. In this paper, we designed a data race detection finite automaton model based on LLVM IR load/store instruction, which helps us to detect the defects in the single variable access sequence mode in the program.
+To verify the validity of our model, we designed a tool called xx. The first step of this tool is to compile the source code into LLVM IR code. The second step is to model according to the load/store instruction in IR, and output the processing result after running.
+The experimental results show that our tool can effectively detect the four defects caused by the single variable access pattern in the code.
 
 ~\\
 
 
-\noindent{\textbf{Keywords:}} datasets, neural networks, gaze detection, text tagging
+\noindent{\textbf{Keywords:}} Interrupt-driven Program, Data Race, Finite State Machine, LLVM IR
 
 \input{body/introduction.tex}
 
