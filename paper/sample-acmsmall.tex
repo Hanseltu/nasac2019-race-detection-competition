@@ -36,7 +36,8 @@
 \begin{document}
 
 
-\title{Build Data Race Detection Finite State Machine Model via LLVM IR load/store Instruction }
+\title{Interrupt Data Race Detection via Variable Access Pattern Search based on LLVM
+ }
 
 \author{Haoxin Tu}
 \email{trovato@corporation.com}
@@ -75,14 +76,25 @@
 
 \noindent{\textbf{ABSTRACT}}
 
-It is especially important to detect concurrent competition caused by interrupts since interrupt-driven embedded software is widely used in safety critical systems such as aerospace, rail transit, and medical equipment. In this paper, we designed a data race detection finite automaton model based on LLVM IR load/store instruction, which helps us to detect the defects in the single variable access sequence mode in the program.
-To verify the validity of our model, we designed a tool called xx. The first step of this tool is to compile the source code into LLVM IR code. The second step is to model according to the load/store instruction in IR, and output the processing result after running.
-The experimental results show that our tool can effectively detect the four defects caused by the single variable access pattern in the code.
+%Interrupt-driven embedded software is widely used in safety critical systems such as aerospace, rail transit, and medical equipment. %In this paper, we designed a data race detection finite automaton model based on LLVM IR load/store instruction, which helps us to detect the defects in the single variable access sequence mode in the program. 
+%Race conditions, occured due to interactions between application tasks and interrupt handlers, are triggered by the frequent using interrupts in these systems.
+%To verify the validity of our model, we designed a tool called xx. The first step of this tool is to compile the source code into LLVM IR code. The second step is to model according to the load/store instruction in IR, and output the processing result after running.
+%The experimental results show that our tool can effectively detect the four defects caused by the single variable access pattern in the code.
+%Few works is focusing on the interrupt data race detection via variable access pattern search, not to mention the method based on LLVM. 
+%In this paper, we design xxx, an automated framework that can detect race conditions in interrupt-driven embedded software.
 
-~\\
+Interrupt data race detection is critical for interrupt-driven software, 
+since dangerous bugs may be caused by interrupt data race. In this paper, 
+we propose a pattern search method to detect interrupt data race based on LLVM. 
+First, we construct the behavor of the program related to the shared variable via 
+the 'load' and 'store' instructions of LLVM. Then, a patter search algorithm is designed 
+to detecte the bugy shared variable access pattern. We evaluate the proposed method on racebench, 
+which reveals that the presented approach can precisely detect race conditions.
+
+~\\[0.1em]
 
 
-\noindent{\textbf{Keywords:}} Interrupt-driven Program, Data Race, Finite State Machine, LLVM IR
+\noindent{\textbf{Keywords:}} Interrupt-driven Program, Data Race, LLVM
 
 \input{body/introduction.tex}
 
@@ -91,9 +103,9 @@ The experimental results show that our tool can effectively detect the four defe
 
 \input{body/model.tex}
 
-\input{body/evaluation.tex}
+%\input{body/evaluation.tex}
 
-\input{body/conclusion.tex}
+%\input{body/conclusion.tex}
 
 
 \newpage
