@@ -9,12 +9,12 @@ extern void delay(unsigned int time);
 
 void racebench_entry(){
 	print2("Data Race Benchmark Program Starting...");
-	OSTaskSpawn(0xb003, 10, 0, 0x2000, (FUNCPTR)bench_task1, 0, 0, 0, 0);
-	OSTaskSpawn(0xb004, 9, 0, 0x2000, (FUNCPTR)bench_task2, 0, 0, 0, 0);
-	OSTaskSpawn(0xb005, 8, 0, 0x2000, (FUNCPTR)bench_task3, 0, 0, 0, 0);
+	//OSTaskSpawn(0xb003, 10, 0, 0x2000, (FUNCPTR)bench_task1, 0, 0, 0, 0);
+	//OSTaskSpawn(0xb004, 9, 0, 0x2000, (FUNCPTR)bench_task2, 0, 0, 0, 0);
+	//OSTaskSpawn(0xb005, 8, 0, 0x2000, (FUNCPTR)bench_task3, 0, 0, 0, 0);
 
-	OSTaskSpawn(0xb006, 7, 0, 0x2000, (FUNCPTR)bench_task4, 0, 0, 0, 0);
-	OSTaskSpawn(0xb007, 6, 0, 0x2000, (FUNCPTR)bench_task5, 0, 0, 0, 0);
+	//OSTaskSpawn(0xb006, 7, 0, 0x2000, (FUNCPTR)bench_task4, 0, 0, 0, 0);
+	//OSTaskSpawn(0xb007, 6, 0, 0x2000, (FUNCPTR)bench_task5, 0, 0, 0, 0);
 }
 
 void Default_int(void)
@@ -26,12 +26,12 @@ void Default_int(void)
 
 
 
-/** 5¸öÈÎÎñ */
+/** 5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 
 /**
-¸²¸ÇµÄcase£º
-case 1: ÓëÖÐ¶Ï1
-case 2: ÓëÖÐ¶Ï2
+ï¿½ï¿½ï¿½Çµï¿½caseï¿½ï¿½
+case 1: ï¿½ï¿½ï¿½Ð¶ï¿½1
+case 2: ï¿½ï¿½ï¿½Ð¶ï¿½2
 
 */
 void bench_task1(void)
@@ -45,7 +45,7 @@ void bench_task1(void)
 		case2_main();
 		idlerun();
 		case14_task1();
-		OSTaskDelay(OS_TIME_TICKS_PER_SEC/100);
+		//OSTaskDelay(OS_TIME_TICKS_PER_SEC/100);
 	}
 
 }
@@ -59,7 +59,7 @@ void bench_task2(void)
 		case3_main();
 		idlerun();
 		case4_main();
-		OSTaskDelay(OS_TIME_TICKS_PER_SEC/100);
+		//OSTaskDelay(OS_TIME_TICKS_PER_SEC/100);
 	}
 }
 
@@ -72,7 +72,8 @@ void bench_task3(void)
 		case6_main();
 		idlerun();
 		case14_task2();
-		OSTaskDelay(OS_TIME_TICKS_PER_SEC/100);	}
+		//OSTaskDelay(OS_TIME_TICKS_PER_SEC/100);
+		}
 
 }
 
@@ -84,7 +85,7 @@ void bench_task4(void)
 		case7_main();
 		idlerun();
 		case9_main();
-		OSTaskDelay(OS_TIME_TICKS_PER_SEC/100);
+		//OSTaskDelay(OS_TIME_TICKS_PER_SEC/100);
 	}
 
 }
@@ -97,7 +98,7 @@ void bench_task5(void)
 		case10_main();
 		idlerun();
 		case13_main();
-		OSTaskDelay(OS_TIME_TICKS_PER_SEC/100);
+		//OSTaskDelay(OS_TIME_TICKS_PER_SEC/100);
 	}
 
 }
