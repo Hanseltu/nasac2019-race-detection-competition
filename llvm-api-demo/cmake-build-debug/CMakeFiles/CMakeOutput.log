@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is AppleClang, found in "/Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/a.out"
+The C compiler identification is AppleClang, found in "/Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /Library/Developer/CommandLineTools/usr/bin/c++ 
@@ -23,35 +23,35 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is AppleClang, found in "/Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/a.out"
+The CXX compiler identification is AppleClang, found in "/Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_23f9d/fast"
-/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_23f9d.dir/build.make CMakeFiles/cmTC_23f9d.dir/build
-Building C object CMakeFiles/cmTC_23f9d.dir/testCCompiler.c.o
-/Library/Developer/CommandLineTools/usr/bin/cc    -o CMakeFiles/cmTC_23f9d.dir/testCCompiler.c.o   -c /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_23f9d
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_23f9d.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_23f9d.dir/testCCompiler.c.o  -o cmTC_23f9d 
+Run Build Command:"/usr/bin/make" "cmTC_021f5/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_021f5.dir/build.make CMakeFiles/cmTC_021f5.dir/build
+Building C object CMakeFiles/cmTC_021f5.dir/testCCompiler.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc    -o CMakeFiles/cmTC_021f5.dir/testCCompiler.c.o   -c /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_021f5
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_021f5.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_021f5.dir/testCCompiler.c.o  -o cmTC_021f5 
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_1be32/fast"
-/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_1be32.dir/build.make CMakeFiles/cmTC_1be32.dir/build
-Building C object CMakeFiles/cmTC_1be32.dir/CMakeCCompilerABI.c.o
-/Library/Developer/CommandLineTools/usr/bin/cc    -o CMakeFiles/cmTC_1be32.dir/CMakeCCompilerABI.c.o   -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.13/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_1be32
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1be32.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_1be32.dir/CMakeCCompilerABI.c.o  -o cmTC_1be32 
+Run Build Command:"/usr/bin/make" "cmTC_a8350/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_a8350.dir/build.make CMakeFiles/cmTC_a8350.dir/build
+Building C object CMakeFiles/cmTC_a8350.dir/CMakeCCompilerABI.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc    -o CMakeFiles/cmTC_a8350.dir/CMakeCCompilerABI.c.o   -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.13/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_a8350
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a8350.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_a8350.dir/CMakeCCompilerABI.c.o  -o cmTC_a8350 
 Apple LLVM version 10.0.1 (clang-1001.0.46.4)
 Target: x86_64-apple-darwin18.7.0
 Thread model: posix
 InstalledDir: /Library/Developer/CommandLineTools/usr/bin
- "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -o cmTC_1be32 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_1be32.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/lib/darwin/libclang_rt.osx.a
+ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -o cmTC_a8350 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_a8350.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/lib/darwin/libclang_rt.osx.a
 @(#)PROGRAM:ld  PROJECT:ld64-450.3
 BUILD 18:16:53 Apr  5 2019
 configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
@@ -65,20 +65,20 @@ Framework search paths:
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_1be32/fast"]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_1be32.dir/build.make CMakeFiles/cmTC_1be32.dir/build]
-  ignore line: [Building C object CMakeFiles/cmTC_1be32.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/cc    -o CMakeFiles/cmTC_1be32.dir/CMakeCCompilerABI.c.o   -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.13/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_1be32]
-  ignore line: [/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1be32.dir/link.txt --verbose=1]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_1be32.dir/CMakeCCompilerABI.c.o  -o cmTC_1be32 ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_a8350/fast"]
+  ignore line: [/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_a8350.dir/build.make CMakeFiles/cmTC_a8350.dir/build]
+  ignore line: [Building C object CMakeFiles/cmTC_a8350.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/Library/Developer/CommandLineTools/usr/bin/cc    -o CMakeFiles/cmTC_a8350.dir/CMakeCCompilerABI.c.o   -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.13/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_a8350]
+  ignore line: [/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a8350.dir/link.txt --verbose=1]
+  ignore line: [/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_a8350.dir/CMakeCCompilerABI.c.o  -o cmTC_a8350 ]
   ignore line: [Apple LLVM version 10.0.1 (clang-1001.0.46.4)]
   ignore line: [Target: x86_64-apple-darwin18.7.0]
   ignore line: [Thread model: posix]
   ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-  link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -o cmTC_1be32 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_1be32.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/lib/darwin/libclang_rt.osx.a]
+  link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -o cmTC_a8350 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_a8350.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/lib/darwin/libclang_rt.osx.a]
     arg [/Library/Developer/CommandLineTools/usr/bin/ld] ==> ignore
     arg [-demangle] ==> ignore
     arg [-lto_library] ==> ignore, skip following value
@@ -89,11 +89,11 @@ Parsed C implicit link information from above output:
     arg [-macosx_version_min] ==> ignore
     arg [10.14.0] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_1be32] ==> ignore
+    arg [cmTC_a8350] ==> ignore
     arg [-search_paths_first] ==> ignore
     arg [-headerpad_max_install_names] ==> ignore
     arg [-v] ==> ignore
-    arg [CMakeFiles/cmTC_1be32.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_a8350.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lSystem] ==> lib [System]
     arg [/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/lib/darwin/libclang_rt.osx.a] ==> lib [/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/lib/darwin/libclang_rt.osx.a]
   Library search paths: [;/usr/lib;/usr/local/lib]
@@ -112,15 +112,15 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_2ea2b/fast"
-/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_2ea2b.dir/build.make CMakeFiles/cmTC_2ea2b.dir/build
-Building C object CMakeFiles/cmTC_2ea2b.dir/feature_tests.c.o
-/Library/Developer/CommandLineTools/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_2ea2b.dir/feature_tests.c.o   -c /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/feature_tests.c
-Linking C executable cmTC_2ea2b
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2ea2b.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_2ea2b.dir/feature_tests.c.o  -o cmTC_2ea2b 
+Run Build Command:"/usr/bin/make" "cmTC_7d23e/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_7d23e.dir/build.make CMakeFiles/cmTC_7d23e.dir/build
+Building C object CMakeFiles/cmTC_7d23e.dir/feature_tests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_7d23e.dir/feature_tests.c.o   -c /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/feature_tests.c
+Linking C executable cmTC_7d23e
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7d23e.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_7d23e.dir/feature_tests.c.o  -o cmTC_7d23e 
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -130,15 +130,15 @@ Linking C executable cmTC_2ea2b
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_4c2fd/fast"
-/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_4c2fd.dir/build.make CMakeFiles/cmTC_4c2fd.dir/build
-Building C object CMakeFiles/cmTC_4c2fd.dir/feature_tests.c.o
-/Library/Developer/CommandLineTools/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_4c2fd.dir/feature_tests.c.o   -c /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/feature_tests.c
-Linking C executable cmTC_4c2fd
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4c2fd.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_4c2fd.dir/feature_tests.c.o  -o cmTC_4c2fd 
+Run Build Command:"/usr/bin/make" "cmTC_c6d28/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_c6d28.dir/build.make CMakeFiles/cmTC_c6d28.dir/build
+Building C object CMakeFiles/cmTC_c6d28.dir/feature_tests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_c6d28.dir/feature_tests.c.o   -c /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/feature_tests.c
+Linking C executable cmTC_c6d28
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c6d28.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_c6d28.dir/feature_tests.c.o  -o cmTC_c6d28 
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -148,15 +148,15 @@ Linking C executable cmTC_4c2fd
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_3de38/fast"
-/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_3de38.dir/build.make CMakeFiles/cmTC_3de38.dir/build
-Building C object CMakeFiles/cmTC_3de38.dir/feature_tests.c.o
-/Library/Developer/CommandLineTools/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_3de38.dir/feature_tests.c.o   -c /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/feature_tests.c
-Linking C executable cmTC_3de38
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3de38.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_3de38.dir/feature_tests.c.o  -o cmTC_3de38 
+Run Build Command:"/usr/bin/make" "cmTC_9d7e2/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_9d7e2.dir/build.make CMakeFiles/cmTC_9d7e2.dir/build
+Building C object CMakeFiles/cmTC_9d7e2.dir/feature_tests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_9d7e2.dir/feature_tests.c.o   -c /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/feature_tests.c
+Linking C executable cmTC_9d7e2
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9d7e2.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_9d7e2.dir/feature_tests.c.o  -o cmTC_9d7e2 
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -164,32 +164,32 @@ Linking C executable cmTC_3de38
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_f4db7/fast"
-/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_f4db7.dir/build.make CMakeFiles/cmTC_f4db7.dir/build
-Building CXX object CMakeFiles/cmTC_f4db7.dir/testCXXCompiler.cxx.o
-/Library/Developer/CommandLineTools/usr/bin/c++     -o CMakeFiles/cmTC_f4db7.dir/testCXXCompiler.cxx.o -c /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_f4db7
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f4db7.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_f4db7.dir/testCXXCompiler.cxx.o  -o cmTC_f4db7 
+Run Build Command:"/usr/bin/make" "cmTC_eddde/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_eddde.dir/build.make CMakeFiles/cmTC_eddde.dir/build
+Building CXX object CMakeFiles/cmTC_eddde.dir/testCXXCompiler.cxx.o
+/Library/Developer/CommandLineTools/usr/bin/c++     -o CMakeFiles/cmTC_eddde.dir/testCXXCompiler.cxx.o -c /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_eddde
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eddde.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_eddde.dir/testCXXCompiler.cxx.o  -o cmTC_eddde 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_5fdea/fast"
-/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_5fdea.dir/build.make CMakeFiles/cmTC_5fdea.dir/build
-Building CXX object CMakeFiles/cmTC_5fdea.dir/CMakeCXXCompilerABI.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/c++     -o CMakeFiles/cmTC_5fdea.dir/CMakeCXXCompilerABI.cpp.o -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.13/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_5fdea
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5fdea.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_5fdea.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_5fdea 
+Run Build Command:"/usr/bin/make" "cmTC_2d056/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_2d056.dir/build.make CMakeFiles/cmTC_2d056.dir/build
+Building CXX object CMakeFiles/cmTC_2d056.dir/CMakeCXXCompilerABI.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++     -o CMakeFiles/cmTC_2d056.dir/CMakeCXXCompilerABI.cpp.o -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.13/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_2d056
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2d056.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_2d056.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_2d056 
 Apple LLVM version 10.0.1 (clang-1001.0.46.4)
 Target: x86_64-apple-darwin18.7.0
 Thread model: posix
 InstalledDir: /Library/Developer/CommandLineTools/usr/bin
- "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -o cmTC_5fdea -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_5fdea.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/lib/darwin/libclang_rt.osx.a
+ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -o cmTC_2d056 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_2d056.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/lib/darwin/libclang_rt.osx.a
 @(#)PROGRAM:ld  PROJECT:ld64-450.3
 BUILD 18:16:53 Apr  5 2019
 configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
@@ -203,20 +203,20 @@ Framework search paths:
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_5fdea/fast"]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_5fdea.dir/build.make CMakeFiles/cmTC_5fdea.dir/build]
-  ignore line: [Building CXX object CMakeFiles/cmTC_5fdea.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/c++     -o CMakeFiles/cmTC_5fdea.dir/CMakeCXXCompilerABI.cpp.o -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.13/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_5fdea]
-  ignore line: [/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5fdea.dir/link.txt --verbose=1]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_5fdea.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_5fdea ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_2d056/fast"]
+  ignore line: [/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_2d056.dir/build.make CMakeFiles/cmTC_2d056.dir/build]
+  ignore line: [Building CXX object CMakeFiles/cmTC_2d056.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/Library/Developer/CommandLineTools/usr/bin/c++     -o CMakeFiles/cmTC_2d056.dir/CMakeCXXCompilerABI.cpp.o -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.13/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_2d056]
+  ignore line: [/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2d056.dir/link.txt --verbose=1]
+  ignore line: [/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_2d056.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_2d056 ]
   ignore line: [Apple LLVM version 10.0.1 (clang-1001.0.46.4)]
   ignore line: [Target: x86_64-apple-darwin18.7.0]
   ignore line: [Thread model: posix]
   ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-  link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -o cmTC_5fdea -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_5fdea.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/lib/darwin/libclang_rt.osx.a]
+  link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -o cmTC_2d056 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_2d056.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/lib/darwin/libclang_rt.osx.a]
     arg [/Library/Developer/CommandLineTools/usr/bin/ld] ==> ignore
     arg [-demangle] ==> ignore
     arg [-lto_library] ==> ignore, skip following value
@@ -227,11 +227,11 @@ Parsed CXX implicit link information from above output:
     arg [-macosx_version_min] ==> ignore
     arg [10.14.0] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_5fdea] ==> ignore
+    arg [cmTC_2d056] ==> ignore
     arg [-search_paths_first] ==> ignore
     arg [-headerpad_max_install_names] ==> ignore
     arg [-v] ==> ignore
-    arg [CMakeFiles/cmTC_5fdea.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_2d056.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lc++] ==> lib [c++]
     arg [-lSystem] ==> lib [System]
     arg [/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/lib/darwin/libclang_rt.osx.a] ==> lib [/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/lib/darwin/libclang_rt.osx.a]
@@ -251,15 +251,15 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
-Change Dir: /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_d9955/fast"
-/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_d9955.dir/build.make CMakeFiles/cmTC_d9955.dir/build
-Building CXX object CMakeFiles/cmTC_d9955.dir/feature_tests.cxx.o
-/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_d9955.dir/feature_tests.cxx.o -c /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_d9955
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d9955.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_d9955.dir/feature_tests.cxx.o  -o cmTC_d9955 
+Run Build Command:"/usr/bin/make" "cmTC_9ad1a/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_9ad1a.dir/build.make CMakeFiles/cmTC_9ad1a.dir/build
+Building CXX object CMakeFiles/cmTC_9ad1a.dir/feature_tests.cxx.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_9ad1a.dir/feature_tests.cxx.o -c /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_9ad1a
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9ad1a.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_9ad1a.dir/feature_tests.cxx.o  -o cmTC_9ad1a 
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -322,15 +322,15 @@ Linking CXX executable cmTC_d9955
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_f2343/fast"
-/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_f2343.dir/build.make CMakeFiles/cmTC_f2343.dir/build
-Building CXX object CMakeFiles/cmTC_f2343.dir/feature_tests.cxx.o
-/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_f2343.dir/feature_tests.cxx.o -c /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_f2343
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f2343.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_f2343.dir/feature_tests.cxx.o  -o cmTC_f2343 
+Run Build Command:"/usr/bin/make" "cmTC_dd1cf/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_dd1cf.dir/build.make CMakeFiles/cmTC_dd1cf.dir/build
+Building CXX object CMakeFiles/cmTC_dd1cf.dir/feature_tests.cxx.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_dd1cf.dir/feature_tests.cxx.o -c /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_dd1cf
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dd1cf.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_dd1cf.dir/feature_tests.cxx.o  -o cmTC_dd1cf 
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -393,15 +393,15 @@ Linking CXX executable cmTC_f2343
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_6c251/fast"
-/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_6c251.dir/build.make CMakeFiles/cmTC_6c251.dir/build
-Building CXX object CMakeFiles/cmTC_6c251.dir/feature_tests.cxx.o
-/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_6c251.dir/feature_tests.cxx.o -c /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_6c251
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6c251.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_6c251.dir/feature_tests.cxx.o  -o cmTC_6c251 
+Run Build Command:"/usr/bin/make" "cmTC_ebadb/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_ebadb.dir/build.make CMakeFiles/cmTC_ebadb.dir/build
+Building CXX object CMakeFiles/cmTC_ebadb.dir/feature_tests.cxx.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_ebadb.dir/feature_tests.cxx.o -c /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_ebadb
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ebadb.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_ebadb.dir/feature_tests.cxx.o  -o cmTC_ebadb 
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -464,15 +464,15 @@ Linking CXX executable cmTC_6c251
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_414cd/fast"
-/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_414cd.dir/build.make CMakeFiles/cmTC_414cd.dir/build
-Building CXX object CMakeFiles/cmTC_414cd.dir/feature_tests.cxx.o
-/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_414cd.dir/feature_tests.cxx.o -c /Users/tuhaoxin/CLionProjects/llvm-api-demo/cmake-build-debug/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_414cd
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_414cd.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_414cd.dir/feature_tests.cxx.o  -o cmTC_414cd 
+Run Build Command:"/usr/bin/make" "cmTC_f9610/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_f9610.dir/build.make CMakeFiles/cmTC_f9610.dir/build
+Building CXX object CMakeFiles/cmTC_f9610.dir/feature_tests.cxx.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_f9610.dir/feature_tests.cxx.o -c /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_f9610
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f9610.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_f9610.dir/feature_tests.cxx.o  -o cmTC_f9610 
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
