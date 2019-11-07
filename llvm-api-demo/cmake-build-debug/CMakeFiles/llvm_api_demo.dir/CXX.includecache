@@ -73,4 +73,8 @@ llvm/IR/Instructions.h
 /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/llvm/IR/Instructions.h
 /Users/tuhaoxin/LLVM/llvm/lib/IR/ConstantsContext.h
 -
+vector
+-
+string
+-
 

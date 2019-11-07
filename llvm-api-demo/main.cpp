@@ -9,6 +9,12 @@
 #include "llvm/IR/DebugInfo.h"
 #include "llvm/IR/Instructions.h"
 #include "/Users/tuhaoxin/LLVM/llvm/lib/IR/ConstantsContext.h"
+#include <vector>
+#include <string>
+
+std::vector<std::vector<std::string>> vec_normal;
+std::vector<std::vector<std::string>> vec_arrayAndStruct;
+std::vector<std::vector<std::string>> vec_union;
 
 using namespace llvm;
 
@@ -51,7 +57,8 @@ void exactInfoFunction(Function &f){
                     }
                 }
                 // output line number
-                std::cout << inst.getDebugLoc().getLine() << inst.getDebugLoc().get()->getDirectory().str() << std::endl;
+                //std::cout << inst.getDebugLoc().getLine() << inst.getDebugLoc().get()->getDirectory().str() << std::endl;
+                std::cout << inst.getDebugLoc().getLine() << std::endl;
             }
             if (!strncmp(inst.getOpcodeName(), "store", 4)) {
                 std::cout << "   Instruction " << " : " << inst.getOpcodeName() << " ";
@@ -60,7 +67,7 @@ void exactInfoFunction(Function &f){
                 for (; i < opnt_cnt; ++i) {
                     Value *opnd = inst.getOperand(i);
 
-                    //deal with getelement type   e.g. struct union
+                    //deal with getelement type   (array, struct)
                     auto gep = dyn_cast<GetElementPtrConstantExpr>(opnd);
                     auto bitcast = opnd->stripPointerCasts();
                     if(gep){
@@ -68,18 +75,18 @@ void exactInfoFunction(Function &f){
                         std::cout << name.str() << " ";
                     }
 
-                        //deal with bitcast
+                        //deal with bitcast (union)
                     else if (bitcast){
                         std::cout << bitcast->getName().str() << " ";
                     }
 
-                        //deal with normal variable
+                        //deal with normal  (variable)
                     else {
                         StringRef name;
 
                         if (opnd->hasName()) {
                             name = opnd->getName().data();
-                            std::cout << name.str() << " ";
+                            std::cout << name.str()<< opnd->getType() << " ";
                         }
                     }
                 }
@@ -111,11 +118,17 @@ int main(int argc, char** argv)
     for (auto gv_iter = Mod->global_begin();gv_iter != Mod->global_end(); gv_iter++) {
         /* GLOBAL DATA INFO*/
         GlobalVariable *gv = &*gv_iter;
-        auto st = Mod->getIdentifiedStructTypes();
-        for (int i=0; i<st.size(); i++){
-        //errs() << "Global Struct " << st.at(i)->getName() << "\n";
+
+        auto a =  Mod->globals();
+        for(auto &b :a){
+            errs() << b.getValueName()->getValue()->getName();
         }
-        std::cout << "Global varible " << gv->getGlobalIdentifier()  <<std::endl;
+        
+        auto st = Mod->getIdentifiedStructTypes();
+        for (int i=0; i<st.size(); i++) {
+            //errs() << "Global Struct " << st.at(i)->getName() << "\n";
+        }
+        std::cout << "Global varible " << gv->getGlobalIdentifier() <<std::endl;
 
     }
 
