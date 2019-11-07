@@ -51,7 +51,7 @@ void exactInfoFunction(Function &f){
                     }
                 }
                 // output line number
-                std::cout << inst.getDebugLoc().getLine() << std::endl;
+                std::cout << inst.getDebugLoc().getLine() << inst.getDebugLoc().get()->getDirectory().str() << std::endl;
             }
             if (!strncmp(inst.getOpcodeName(), "store", 4)) {
                 std::cout << "   Instruction " << " : " << inst.getOpcodeName() << " ";
