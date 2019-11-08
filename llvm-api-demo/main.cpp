@@ -119,11 +119,12 @@ int main(int argc, char** argv)
         /* GLOBAL DATA INFO*/
         GlobalVariable *gv = &*gv_iter;
 
+
         auto a =  Mod->globals();
         for(auto &b :a){
-            errs() << b.getValueName()->getValue()->getName();
+            errs() << *b.getType();
         }
-        
+
         auto st = Mod->getIdentifiedStructTypes();
         for (int i=0; i<st.size(); i++) {
             //errs() << "Global Struct " << st.at(i)->getName() << "\n";
