@@ -1,0 +1,100 @@
+
+每个待测试文件维护两个数组(需要先判断中断开关函数)
+一个main函数二维数组，记录load/store指令及其他信息
+一个isr函数三维数组，记录load/store指令及其他信息，可能有多isr个函数，所以是三维
+
+定义全局队列，保存指令信息
+vector<<vector<string>> global_var, global_union, global_struct, global_array;
+
+读取指令，数组格式为
+global_var : store/load 变量名
+global_union : store/load 变量名 操作数
+global_struct : store/load 变量名 操作数
+global_array : store/load 变量名 index
+
+遍历保存main函数中函数，是否有enable_isr
+vector<string> function_array
+has_enable()
+
+//情况一：RWR
+input: Basic block
+output:vector<string> (file_location line description)
+vector<string> handlePattern1(){
+    if operation == 'load' && tem_var == global_var[i]
+        if (global_var in isr() && operation=="store" && tem_var==global)
+            //store "load" information
+            //store "store" information
+        else
+            return null;
+    if operation == "load" && temp_var == global[i]
+        //store "load" information
+    else
+        return null;
+    return vector<string> result;
+}
+
+//情况二：WWR
+input: Basic block
+output:vector<string> (file_location line description)
+vector<string> handlePattern2(){
+    if operation == 'store' && tem_var == global_union[i]
+        if (global_var in isr() && operation=="store" && tem_var==global)
+            //store "store" information
+            //store "store" information
+        else
+            return null;
+    if operation == "load" && temp_var == global[i]
+        //store "load" information
+    else
+        return null;
+    return vector<string> result;
+}
+
+情况三：RWW
+input: Basic block
+output:vector<string> (file_location line description)
+vector<string> handlePattern3(){
+    if operation == 'load' && tem_var == global_struct[i]
+        if (global_var in isr() && operation=="store" && tem_var==global)
+            //store "store" information
+            //store "store" information
+        else
+            return null;
+    if operation == "load" && temp_var == global[i]
+        //store "store" information
+    else
+        return null;
+    return vector<string> result;
+}
+
+情况四：WRW
+input: Basic block
+output:vector<string> (file_location line description)
+vector<string> handlePattern4(){
+    if operation == 'store' && tem_var == global_array[i]
+        if (global_var in isr() && operation=="load" && tem_var==global)
+            //store "store" information
+            //store "load" information
+        else
+            return null;
+    if operation == "load" && temp_var == global[i]
+        //store "load" information
+    else
+        return null;
+    return vector<string> result;
+}
+
+
+
+//主函数
+if is_main
+    if has_enable()==1
+        //start from enable_isr()
+        //save to global vector
+        //report bugs
+    //save to global vector
+    //report bugs
+
+
+
+
