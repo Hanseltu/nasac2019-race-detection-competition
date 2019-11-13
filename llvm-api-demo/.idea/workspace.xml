@@ -11,10 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5c46f3a-5f94-41bc-897b-a371e7413709" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/llvm_api_demo.dir/main.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="f5c46f3a-5f94-41bc-897b-a371e7413709" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -149,68 +146,6 @@
             <path>
               <item name="llvm_api_demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="llvm-api-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="c-src" type="462c0819:PsiDirectoryNode" />
-              <item name="2.0" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="llvm_api_demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="llvm-api-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="c-src" type="462c0819:PsiDirectoryNode" />
-              <item name="2.0" type="462c0819:PsiDirectoryNode" />
-              <item name="svp_simple_003" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="llvm_api_demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="llvm-api-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="c-src" type="462c0819:PsiDirectoryNode" />
-              <item name="2.0" type="462c0819:PsiDirectoryNode" />
-              <item name="svp_simple_005" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="llvm_api_demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="llvm-api-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="c-src" type="462c0819:PsiDirectoryNode" />
-              <item name="2.0" type="462c0819:PsiDirectoryNode" />
-              <item name="svp_simple_007" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="llvm_api_demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="llvm-api-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="c-src" type="462c0819:PsiDirectoryNode" />
-              <item name="2.0" type="462c0819:PsiDirectoryNode" />
-              <item name="svp_simple_013" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="llvm_api_demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="llvm-api-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="c-src" type="462c0819:PsiDirectoryNode" />
-              <item name="2.0" type="462c0819:PsiDirectoryNode" />
-              <item name="svp_simple_021" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="llvm_api_demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="llvm-api-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="c-src" type="462c0819:PsiDirectoryNode" />
-              <item name="2.0" type="462c0819:PsiDirectoryNode" />
-              <item name="svp_simple_023" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="llvm_api_demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="llvm-api-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="c-src" type="462c0819:PsiDirectoryNode" />
-              <item name="2.0" type="462c0819:PsiDirectoryNode" />
-              <item name="svp_simple_024" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="llvm_api_demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="llvm-api-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="c-src" type="462c0819:PsiDirectoryNode" />
-              <item name="2.0" type="462c0819:PsiDirectoryNode" />
-              <item name="svp_simple_026" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="llvm_api_demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="llvm-api-demo" type="462c0819:PsiDirectoryNode" />
               <item name="ir-src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -276,23 +211,22 @@
       <workItem from="1572921422674" duration="834000" />
       <workItem from="1572933082435" duration="97000" />
       <workItem from="1572933194822" duration="44229000" />
-      <workItem from="1573053230515" duration="38506000" />
+      <workItem from="1573053230515" duration="38594000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83666000" />
+    <option name="totallyTimeSpent" value="83754000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22174536" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22174536" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24216868" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.24216868" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />

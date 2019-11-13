@@ -3,14 +3,14 @@
 一个main函数二维数组，记录load/store指令及其他信息
 一个isr函数三维数组，记录load/store指令及其他信息，可能有多isr个函数，所以是三维
 
-定义全局队列，保存指令信息
+定义全局队列，保存指令信息(变量名和类型)
 vector<<vector<string>> global_var, global_union, global_struct, global_array;
 
 读取指令，数组格式为
-global_var : store/load 变量名
-global_union : store/load 变量名 操作数
-global_struct : store/load 变量名 操作数
-global_array : store/load 变量名 index
+global_var : store/load 变量名 行号 文件位置
+global_union : store/load 变量名 操作数 行号 文件位置
+global_struct : store/load 变量名 操作数 行号 文件位置
+global_array : store/load 变量名 index 行号 文件位置
 
 遍历保存main函数中函数，是否有enable_isr
 vector<string> function_array
