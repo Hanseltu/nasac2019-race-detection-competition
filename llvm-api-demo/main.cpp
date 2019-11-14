@@ -13,6 +13,7 @@
 #include <string>
 #include <regex>
 #include<cstring>
+#include <map>
 
 using namespace llvm;
 
@@ -24,8 +25,14 @@ std::vector<std::string> global_union;
 std::vector<std::vector<std::string>> mainInfo;
 std::vector<std::vector<std::vector<std::string>>> isrInfo;
 
+//called function in main
+std::map<std::string,int> mapCalledFun;
+
 //std::regex pattern(global_var[0]);
 //std::smatch result;
+
+int g_count;
+int g_enable_para;
 
 bool has_global_var(std::string str){
 
@@ -74,9 +81,20 @@ void travers1D(const std::vector<std::string> vec_1D) {
     }
 }
 
+int findNumberInEnbleFun(Function &f,int count){
+    std::string fname = f.getName().str();
+    if (findSubString(fname, "enable")){
+        errs() << "count " << count << "\n" ;
+        g_count=count;
+        return g_count;
+    }
+   
+}
 
-void exactInfoFunction(Function *f,int count,int temp_count) {
+
+void exactInfoFunction(Function *f) {
     //std::cout << " Function: " << f->getName().str() << std::endl;
+    int retCount,retEnablePara;
     std::string fname = f->getName().str();
     for(auto &arg : f->operands()) {
         //ConstantInt* ci = dyn_cast<ConstantInt>(&arg);
@@ -84,25 +102,18 @@ void exactInfoFunction(Function *f,int count,int temp_count) {
         //errs() << *arg << "\n";
     }
     //int temp_count=0;
-    if (findSubString(fname, "enable")){
-        errs() << "count " << count << "\n" ;
-        //for (auto t = f->args().begin(); t!=f->args().end();t++)
-        //    errs() << t->getParamAlignment()<< "\n";
 
-        temp_count = count;
-        //errs() << "temp_count " << temp_count << "\n" ;
-        //exit(1);
-    }
 
-    //errs() << "temp_count " << temp_count << "\n" ;
+
+    errs() << "g_count " << g_count << "\n" ;
 
     if (findSubString(fname, "main")) {
         int cnt = 0;
         for (auto &bb : f->getBasicBlockList()) {
             cnt += 1;
             //std::cout << "  BasicBlock: " << bb.getName().str() << std::endl;
-            //errs() << cnt << " " << "\n";
-            if (cnt > 12){
+            errs() << g_count << " " << "\n";
+            if (cnt > 4){
             for (auto &inst : bb) {
                 //auto *ci = cast<CallInst>(inst);
                 //errs() << ci->getCalledFunction()->getName().str();
@@ -167,6 +178,25 @@ void exactInfoFunction(Function *f,int count,int temp_count) {
                         mainInfo.push_back(temp);
                         temp.clear();
                     }
+                }
+                //get enable parameter
+                if (!strncmp(inst.getOpcodeName(), "call", 4)) {
+                    const CallInst * callInst = dyn_cast<CallInst>(&inst);
+                    Function* calledFun = callInst->getCalledFunction();
+                    std::string funName;
+                    funName = calledFun->getName().str();
+                    //errs() << funName;
+                    auto paraNum = callInst->getNumArgOperands();
+                    if (paraNum){
+                        for (unsigned int i=0;i<paraNum;i++){
+                            Value* para = callInst->getArgOperandUse(i);
+                            auto *v = dyn_cast<ConstantInt>(para);
+                            //errs() << v->getValue().getSExtValue();
+                            g_enable_para = v->getValue().getZExtValue();
+                            //errs() << g_enable_para;
+                        }
+                    }
+                    mapCalledFun.insert(std::pair<std::string,int>(funName,g_enable_para));
                 }
 
                 if (!strncmp(inst.getOpcodeName(), "store", 4)) {
@@ -391,12 +421,16 @@ int main(int argc, char **argv) {
 
         for (auto &f : Mod->getFunctionList()) {
             int count,temp_count;
-            exactInfoFunction(&f,count,temp_count);
+            //std::vector<int> ret;
+            exactInfoFunction(&f);
+            temp_count = findNumberInEnbleFun(f,count);
+            errs() << "temp_count" << temp_count ;
             count += 1;
             //handleNormalFunction(f);
             //handleUnionFunction(f);
 
         }
+        errs() << g_count << g_enable_para;
 
         std::cout << "Variable in global_var: " << std::endl;
         travers1D(global_var);
@@ -404,6 +438,9 @@ int main(int argc, char **argv) {
         travers2D(mainInfo);
         std::cout << "isrInfo: " << std::endl;
         travers3D(isrInfo);
+
+        for ( auto m1_Iter = mapCalledFun.begin( ); m1_Iter != mapCalledFun.end( ); m1_Iter++ )
+            std::cout <<  m1_Iter->first<<" "<<m1_Iter->second<<std::endl;
 
         return 0;
 }
