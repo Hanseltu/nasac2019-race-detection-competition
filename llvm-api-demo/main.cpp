@@ -75,14 +75,37 @@ void travers1D(const std::vector<std::string> vec_1D) {
 }
 
 
-void exactInfoFunction(Function &f) {
+void exactInfoFunction(Function *f,int count,int temp_count) {
+    //std::cout << " Function: " << f->getName().str() << std::endl;
+    std::string fname = f->getName().str();
+    for(auto &arg : f->operands()) {
+        //ConstantInt* ci = dyn_cast<ConstantInt>(&arg);
+        errs() << arg->getName().str();
+        //errs() << *arg << "\n";
+    }
+    //int temp_count=0;
+    if (findSubString(fname, "enable")){
+        errs() << "count " << count << "\n" ;
+        //for (auto t = f->args().begin(); t!=f->args().end();t++)
+        //    errs() << t->getParamAlignment()<< "\n";
 
-    //std::cout << " Function: " << f.getName().str() << std::endl;
-    std::string fname = f.getName().str();
+        temp_count = count;
+        //errs() << "temp_count " << temp_count << "\n" ;
+        //exit(1);
+    }
+
+    //errs() << "temp_count " << temp_count << "\n" ;
+
     if (findSubString(fname, "main")) {
-        for (auto &bb : f.getBasicBlockList()) {
+        int cnt = 0;
+        for (auto &bb : f->getBasicBlockList()) {
+            cnt += 1;
             //std::cout << "  BasicBlock: " << bb.getName().str() << std::endl;
+            //errs() << cnt << " " << "\n";
+            if (cnt > 12){
             for (auto &inst : bb) {
+                //auto *ci = cast<CallInst>(inst);
+                //errs() << ci->getCalledFunction()->getName().str();
                 std::vector<std::string> temp;
                 if (!strncmp(inst.getOpcodeName(), "load", 4)) {
                     //std::cout << "   Instruction " << " : " << inst.getOpcodeName() << " ";
@@ -197,11 +220,12 @@ void exactInfoFunction(Function &f) {
 
             }
         }
+        }
     }
     if (findSubString(fname, "_isr_")) {
         //errs() << findSubString(fname,"_isr_");
         std::vector<std::vector<std::string>> temp_isr;
-        for (auto &bb : f.getBasicBlockList()) {
+        for (auto &bb : f->getBasicBlockList()) {
             //std::cout << "  BasicBlock: " << bb.getName().str() << std::endl;
             for (auto &inst : bb) {
                 std::vector<std::string> temp;
@@ -335,6 +359,10 @@ int main(int argc, char **argv) {
         LLVMContext Context;
         SMDiagnostic Err;
         Module *Mod = parseIRFile(argv[1], Err, Context).release();
+        //Function *call = Mod->getFunction("enable_isr");
+        //for (auto t = call->args().begin(); t!=call->args().end();t++)
+        //errs() << t->getValueName()<< "\n";
+
 
         if (!Mod) {
             errs() << "Mod is null";
@@ -354,7 +382,7 @@ int main(int argc, char **argv) {
 
             auto st = Mod->getIdentifiedStructTypes();
             for (int i = 0; i < st.size(); i++) {
-                //errs() << "Global Struct " << st.at(i)->getName() << "\n";
+                //errs() << "Global Struct " << st.at(i)->etName() << "\n";
             }
             //std::cout << "Global varible " << gv->getGlobalIdentifier() <<std::endl;
             global_var.push_back(gv->getGlobalIdentifier());
@@ -362,7 +390,9 @@ int main(int argc, char **argv) {
         }
 
         for (auto &f : Mod->getFunctionList()) {
-            exactInfoFunction(f);
+            int count,temp_count;
+            exactInfoFunction(&f,count,temp_count);
+            count += 1;
             //handleNormalFunction(f);
             //handleUnionFunction(f);
 
