@@ -87,6 +87,12 @@
 		<Unit filename="/Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/main.cpp">
 			<Option target="llvm_api_demo"/>
 		</Unit>
+		<Unit filename="/Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/tool.cpp">
+			<Option target="llvm_api_demo"/>
+		</Unit>
+		<Unit filename="/Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/tool.h">
+			<Option target="llvm_api_demo"/>
+		</Unit>
 		<Unit filename="/Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

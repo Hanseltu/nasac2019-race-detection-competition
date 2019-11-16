@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/llvm_api_demo.dir/main.cpp.o"
+  "CMakeFiles/llvm_api_demo.dir/tool.cpp.o"
   "llvm_api_demo.pdb"
   "llvm_api_demo"
 )

@@ -150,6 +150,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/llvm_api_demo.dir/build.make CMakeFiles/llvm_api_demo.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+tool.o: tool.cpp.o
+
+.PHONY : tool.o
+
+# target to build an object file
+tool.cpp.o:
+	$(MAKE) -f CMakeFiles/llvm_api_demo.dir/build.make CMakeFiles/llvm_api_demo.dir/tool.cpp.o
+.PHONY : tool.cpp.o
+
+tool.i: tool.cpp.i
+
+.PHONY : tool.i
+
+# target to preprocess a source file
+tool.cpp.i:
+	$(MAKE) -f CMakeFiles/llvm_api_demo.dir/build.make CMakeFiles/llvm_api_demo.dir/tool.cpp.i
+.PHONY : tool.cpp.i
+
+tool.s: tool.cpp.s
+
+.PHONY : tool.s
+
+# target to generate assembly for a file
+tool.cpp.s:
+	$(MAKE) -f CMakeFiles/llvm_api_demo.dir/build.make CMakeFiles/llvm_api_demo.dir/tool.cpp.s
+.PHONY : tool.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,6 +189,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... tool.o"
+	@echo "... tool.i"
+	@echo "... tool.s"
 .PHONY : help
 
 

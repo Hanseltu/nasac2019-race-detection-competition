@@ -4,3 +4,8 @@
 CMakeFiles/llvm_api_demo.dir/main.cpp.o
  /Users/tuhaoxin/LLVM/llvm/lib/IR/ConstantsContext.h
  /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/main.cpp
+ /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/tool.h
+CMakeFiles/llvm_api_demo.dir/tool.cpp.o
+ /Users/tuhaoxin/LLVM/llvm/lib/IR/ConstantsContext.h
+ /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/tool.cpp
+ /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/tool.h

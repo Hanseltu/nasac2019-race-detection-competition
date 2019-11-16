@@ -37,4 +37,4 @@ LINK_LIBRARIES(-lLLVMSymbolize -lLLVMDebugInfoPDB -lLLVMCoverage -lLLVMDlltoolDr
         -lLLVMDebugInfoCodeView -lLLVMDebugInfoMSF -lLLVMBitReader -lLLVMCore -lLLVMBinaryFormat -lLLVMSupport -lLLVMDemangle)
 
 
-add_executable(llvm_api_demo main.cpp)
+add_executable(llvm_api_demo main.cpp tool.cpp tool.h)

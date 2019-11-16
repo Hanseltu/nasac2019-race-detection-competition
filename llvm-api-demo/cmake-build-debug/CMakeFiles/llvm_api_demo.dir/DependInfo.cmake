@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/main.cpp" "/Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/llvm_api_demo.dir/main.cpp.o"
+  "/Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/tool.cpp" "/Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cmake-build-debug/CMakeFiles/llvm_api_demo.dir/tool.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

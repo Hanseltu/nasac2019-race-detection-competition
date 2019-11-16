@@ -3,4 +3,9 @@
 
 CMakeFiles/llvm_api_demo.dir/main.cpp.o: /Users/tuhaoxin/LLVM/llvm/lib/IR/ConstantsContext.h
 CMakeFiles/llvm_api_demo.dir/main.cpp.o: ../main.cpp
+CMakeFiles/llvm_api_demo.dir/main.cpp.o: ../tool.h
+
+CMakeFiles/llvm_api_demo.dir/tool.cpp.o: /Users/tuhaoxin/LLVM/llvm/lib/IR/ConstantsContext.h
+CMakeFiles/llvm_api_demo.dir/tool.cpp.o: ../tool.cpp
+CMakeFiles/llvm_api_demo.dir/tool.cpp.o: ../tool.h
 
