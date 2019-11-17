@@ -3,13 +3,13 @@
 std::vector<std::vector<std::string>> mainInfo;
 std::vector<std::vector<std::vector<std::string>>> isrInfo;
 
-std::vector<std::string> global_var;
+std::vector<std::vector<std::string>> global_var;
 std::vector<std::string> global_array;
 std::vector<std::string> global_union;
 
 std::map<std::string,int> mapCalledFun;
 
-int g_count;
+
 int g_enable_para;
 
 
@@ -45,20 +45,28 @@ int main(int argc, char **argv) {
 
 
             auto a = Mod->globals();
-            for (auto &b :a) {
-                //errs() << *b.getValueType();
-            }
+            std::vector<std::string> temp;
+
 
             auto st = Mod->getIdentifiedStructTypes();
             for (int i = 0; i < st.size(); i++) {
                 //errs() << "Global Struct " << st.at(i)->etName() << "\n";
             }
             //std::cout << "Global varible " << gv->getGlobalIdentifier() <<std::endl;
-            global_var.push_back(gv->getGlobalIdentifier());
+            temp.push_back(gv->getGlobalIdentifier());
+            for (auto &b :a) {
+                errs() << *b.getValueType();
+                errs() << b.getType();
+                auto &f = *b.getValueType();
+
+                //temp.push_back();
+            }
+            global_var.push_back(temp);
 
         }
 
-        int temp_count = findNumberInEnbleFun(Mod,g_count);
+        int temp_count = findNumberInEnbleFun(Mod);
+        errs() << "tem_count : " << temp_count << "\n";
 
         for (auto &f : Mod->getFunctionList()) {
             //int count,temp_count;
@@ -81,7 +89,7 @@ int main(int argc, char **argv) {
         //errs() << g_count << g_enable_para;
         //
         std::cout << "Variable in global_var: " << std::endl;
-        travers1D(global_var);
+        //travers1D(global_var);
         std::cout << "mainInfo: " << std::endl;
         travers2D(mainInfo);
         std::cout << "isrInfo: " << std::endl;

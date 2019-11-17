@@ -50,22 +50,63 @@ void travers1D(const std::vector<std::string> vec_1D) {
     }
 }
 
-int findNumberInEnbleFun(Module *M,int g_count){
+int findNumberInEnbleFun(Module *M){
     /*
     std::string fname = f.getName().str();
 
     return 0;
      */
+    int ret = 0;
     for (auto &f : M->getFunctionList()) {
         //std::string fname = bb.getModule()->getFunction("enable_isr")->getName().str();
         std::string fname = f.getName().str();
-        g_count ++;
-        if (findSubString(fname, "enable")){
-            return g_count;
+
+
+        if (findSubString(fname, "main")) {
+
+            //if (findSubString(fname, "enable")) {
+            //    return g_count;
+            //}
+            int cnt=0;
+            for (auto &bb : f.getBasicBlockList()){
+                //g_count++;
+                cnt++;
+                for (auto &inst : bb){
+                    //errs() << inst.getOpcodeName();
+                    if (!strncmp(inst.getOpcodeName(), "call", 4)) {
+                        const CallInst * callInst = dyn_cast<CallInst>(&inst);
+                        Function* calledFun = callInst->getCalledFunction();
+                        std::string funName;
+                        funName = calledFun->getName().str();
+
+                        //errs() << funName;
+
+                        auto paraNum = callInst->getNumArgOperands();
+                        if (paraNum){
+                            for (unsigned int i=0;i<paraNum;i++){
+                                Value* para = callInst->getArgOperandUse(i);
+                                auto *v = dyn_cast<ConstantInt>(para);
+                                //errs() << v->getValue().getSExtValue();
+                                g_enable_para = v->getValue().getZExtValue();
+                                //errs() << g_enable_para;
+                            }
+                        }
+                        mapCalledFun.insert(std::pair<std::string,int>(funName,g_enable_para));
+                        if (findSubString(funName,"init")){
+                            ret = 0;
+                            return ret;
+                        }
+                        if (findSubString(funName,"enable")){
+                            ret = cnt;
+                            return ret;
+                        }
+                    }
+                }
+                //return ret;
+            }
         }
-        //errs() << fname << "\n";
     }
-    return 0;
+    return ret;
 }
 
 void exactInfoFunction(Function *f,int g_count) {
@@ -88,25 +129,7 @@ void exactInfoFunction(Function *f,int g_count) {
                 for (auto &inst : bb) {
                     //auto *ci = cast<CallInst>(inst);
                     //errs() << ci->getCalledFunction()->getName().str();
-                    //get enable parameter
-                    if (!strncmp(inst.getOpcodeName(), "call", 4)) {
-                        const CallInst * callInst = dyn_cast<CallInst>(&inst);
-                        Function* calledFun = callInst->getCalledFunction();
-                        std::string funName;
-                        funName = calledFun->getName().str();
-                        //errs() << funName;
-                        auto paraNum = callInst->getNumArgOperands();
-                        if (paraNum){
-                            for (unsigned int i=0;i<paraNum;i++){
-                                Value* para = callInst->getArgOperandUse(i);
-                                auto *v = dyn_cast<ConstantInt>(para);
-                                //errs() << v->getValue().getSExtValue();
-                                g_enable_para = v->getValue().getZExtValue();
-                                //errs() << g_enable_para;
-                            }
-                        }
-                        mapCalledFun.insert(std::pair<std::string,int>(funName,g_enable_para));
-                    }
+
                     std::vector<std::string> temp;
                     if (!strncmp(inst.getOpcodeName(), "load", 4)) {
                         //std::cout << "   Instruction " << " : " << inst.getOpcodeName() << " ";

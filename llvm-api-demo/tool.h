@@ -26,13 +26,13 @@ using namespace llvm;
 extern std::vector<std::vector<std::string>> mainInfo;
 extern std::vector<std::vector<std::vector<std::string>>> isrInfo;
 
-extern std::vector<std::string> global_var;
+extern std::vector<std::vector<std::string>> global_var;
 extern std::vector<std::string> global_array;
 extern std::vector<std::string> global_union;
 
 extern std::map<std::string,int> mapCalledFun;
 
-extern int g_count;
+
 extern int g_enable_para;
 
 
@@ -44,7 +44,7 @@ void travers2D(const std::vector<std::vector<std::string>> &vec_2D);
 
 void travers3D(const std::vector<std::vector<std::vector<std::string>>> &vec_3D);
 
-int findNumberInEnbleFun(Module *M,int g_count);
+int findNumberInEnbleFun(Module *M);
 
 void exactInfoFunction(Function *f,int g_count);
 
