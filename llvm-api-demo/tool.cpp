@@ -92,10 +92,10 @@ int findNumberInEnbleFun(Module *M){
                             }
                         }
                         mapCalledFun.insert(std::pair<std::string,int>(funName,g_enable_para));
-                        if (findSubString(funName,"init")){
-                            ret = 0;
-                            return ret;
-                        }
+                        //if (findSubString(funName,"init")){
+                         //   ret = 0;
+                         //   return ret;
+                        //}
                         if (findSubString(funName,"enable")){
                             ret = cnt;
                             return ret;
@@ -356,6 +356,43 @@ void exactInfoFunction(Function *f,int g_count) {
 std::vector<std::string> pattern1RWR(std::vector<std::vector<std::string>> mainInfo,
                                     std::vector<std::vector<std::vector<std::string>>> isrInfo,std::map<std::string,int> mapCalledFun){
     std::vector<std::string> ret1;
+    unsigned int size_main = mainInfo.size();
+    int enable_para = 0;
+    std::vector<int> size_isr;
+
+    //add to one vector to mainAndIsr
+    std::vector<std::vector<std::string>> mainAndIsr;
+    for (int i=0; i< mainInfo.size(); i++){
+        mainAndIsr.push_back(mainInfo[i]);
+
+    }
+    for (int i=0; i < isrInfo.size(); i++){
+        int cnt=0;
+        for (int j=0; j<isrInfo[i].size(); j++){
+            cnt++;
+            mainAndIsr.push_back(isrInfo[i][j]);
+        }
+        size_isr.push_back(cnt);
+    }
+
+    errs() << "mainAndIsr size : " << mainAndIsr.size() << "\n";
+    errs() << "size_main : " << size_main << "\n";
+    errs() << "size_isr : " << size_isr[1] << "\n";
+    travers2D(mainAndIsr);
+
+    //find if there any enbale function
+    for ( auto m1_Iter = mapCalledFun.begin( ); m1_Iter != mapCalledFun.end( ); m1_Iter++ ){
+        //std::cout <<  m1_Iter->first<<" "<<m1_Iter->second<<std::endl;
+        std::string it = m1_Iter->first;
+        errs() << it;
+        if (findSubString(it,"enable")){
+            enable_para = m1_Iter->second;
+            errs() << "enable_para : " << enable_para << "\n";
+            break;
+        }
+    }
+    errs() << "enable_para : " << enable_para << "\n";
+
     return ret1;
 }
 

@@ -98,5 +98,7 @@ int main(int argc, char **argv) {
         for ( auto m1_Iter = mapCalledFun.begin( ); m1_Iter != mapCalledFun.end( ); m1_Iter++ )
             std::cout <<  m1_Iter->first<<" "<<m1_Iter->second<<std::endl;
 
+        pattern1RWR(mainInfo,isrInfo,mapCalledFun);
+
         return 0;
 }
