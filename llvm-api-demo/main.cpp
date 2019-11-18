@@ -3,7 +3,8 @@
 std::vector<std::vector<std::string>> mainInfo;
 std::vector<std::vector<std::vector<std::string>>> isrInfo;
 
-std::vector<std::vector<std::string>> global_var;
+//std::vector<std::vector<std::string>> global_var;
+std::vector<std::string> global_var;
 std::vector<std::string> global_array;
 std::vector<std::string> global_union;
 
@@ -55,13 +56,17 @@ int main(int argc, char **argv) {
             //std::cout << "Global varible " << gv->getGlobalIdentifier() <<std::endl;
             temp.push_back(gv->getGlobalIdentifier());
             for (auto &b :a) {
-                errs() << *b.getValueType();
-                errs() << b.getType();
+                //errs() << *b.getValueType();
+                //errs() << b.getName();
                 auto &f = *b.getValueType();
 
                 //temp.push_back();
+
             }
-            global_var.push_back(temp);
+            // get std::string global
+            global_var.push_back(gv->getGlobalIdentifier());
+
+            //global_var.push_back(temp);
 
         }
 
@@ -89,16 +94,18 @@ int main(int argc, char **argv) {
         //errs() << g_count << g_enable_para;
         //
         std::cout << "Variable in global_var: " << std::endl;
-        //travers1D(global_var);
+        travers1D(global_var);
         std::cout << "mainInfo: " << std::endl;
-        travers2D(mainInfo);
+        //travers2D(mainInfo);
         std::cout << "isrInfo: " << std::endl;
-        travers3D(isrInfo);
+        //travers3D(isrInfo);
 
         for ( auto m1_Iter = mapCalledFun.begin( ); m1_Iter != mapCalledFun.end( ); m1_Iter++ )
             std::cout <<  m1_Iter->first<<" "<<m1_Iter->second<<std::endl;
 
-        pattern1RWR(mainInfo,isrInfo,mapCalledFun);
+        std::vector<std::vector<std::string>> ret;
+        ret = pattern1RWR(mainInfo,isrInfo,mapCalledFun);
+        travers2D(ret);
 
         return 0;
 }

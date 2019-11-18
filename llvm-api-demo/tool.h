@@ -26,7 +26,8 @@ using namespace llvm;
 extern std::vector<std::vector<std::string>> mainInfo;
 extern std::vector<std::vector<std::vector<std::string>>> isrInfo;
 
-extern std::vector<std::vector<std::string>> global_var;
+//extern std::vector<std::vector<std::string>> global_var;
+extern std::vector<std::string> global_var;
 extern std::vector<std::string> global_array;
 extern std::vector<std::string> global_union;
 
@@ -50,7 +51,7 @@ void exactInfoFunction(Function *f,int g_count);
 
 //deal with four patterns
 
-std::vector<std::string> pattern1RWR(std::vector<std::vector<std::string>> mainInfo,
+std::vector<std::vector<std::string>> pattern1RWR(std::vector<std::vector<std::string>> mainInfo,
         std::vector<std::vector<std::vector<std::string>>> isrInfo,std::map<std::string,int> mapCalledFun);
 
 std::vector<std::string> pattern2WWR(std::vector<std::vector<std::string>> mainInfo,
