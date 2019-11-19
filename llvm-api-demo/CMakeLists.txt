@@ -2,9 +2,11 @@ cmake_minimum_required(VERSION 3.13)
 project(llvm_api_demo)
 
 set(CMAKE_CXX_STANDARD 14)
+
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fPIC")
 #set(CMAKE_CXX_FLAGS -lLLVM) # link LLVM libs
 
-add_compile_options(-I/Users/tuhaoxin/LLVM/llvm/include -I/Users/tuhaoxin/LLVM/build/include -std=c++11
+add_compile_options(-I/Users/tuhaoxin/LLVM/llvm/include -I/Users/tuhaoxin/LLVM/build/include
         -fno-exceptions -fno-rtti -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS)
 
 #llvm-config --ldflags
@@ -12,6 +14,9 @@ LINK_LIBRARIES(-L/Users/tuhaoxin/LLVM/build/lib -Wl,-search_paths_first -Wl,-hea
 
 #llvm-config --system-libs
 LINK_LIBRARIES(-lz -lcurses -lm -lxml2)
+
+
+
 
 #llvm-config --libs
 LINK_LIBRARIES(-lLLVMSymbolize -lLLVMDebugInfoPDB -lLLVMCoverage -lLLVMDlltoolDriver -lLLVMOrcJIT -lLLVMTestingSupport
@@ -37,4 +42,4 @@ LINK_LIBRARIES(-lLLVMSymbolize -lLLVMDebugInfoPDB -lLLVMCoverage -lLLVMDlltoolDr
         -lLLVMDebugInfoCodeView -lLLVMDebugInfoMSF -lLLVMBitReader -lLLVMCore -lLLVMBinaryFormat -lLLVMSupport -lLLVMDemangle)
 
 
-add_executable(llvm_api_demo main.cpp tool.cpp tool.h)
+add_executable(llvm_api_demo main.cpp tool.cpp tool.h cJSON.h cJSON.c)

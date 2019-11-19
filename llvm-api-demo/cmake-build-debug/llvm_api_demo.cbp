@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cJSON.c">
+			<Option target="llvm_api_demo"/>
+		</Unit>
+		<Unit filename="/Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cJSON.h">
+			<Option target="llvm_api_demo"/>
+		</Unit>
 		<Unit filename="/Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/main.cpp">
 			<Option target="llvm_api_demo"/>
 		</Unit>

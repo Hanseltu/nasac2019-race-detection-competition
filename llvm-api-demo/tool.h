@@ -20,6 +20,7 @@
 #include <regex>
 #include<cstring>
 #include <map>
+#include "cJSON.h"
 
 using namespace llvm;
 
@@ -53,18 +54,19 @@ void exactGeteleInfoFun(Function *f);
 
 //deal with four patterns
 
-std::vector<std::vector<std::string>> pattern1RWR(std::vector<std::vector<std::string>> mainInfo,
+std::vector<std::vector<std::vector<std::string>>>  pattern1RWR(std::vector<std::vector<std::string>> mainInfo,
         std::vector<std::vector<std::vector<std::string>>> isrInfo,std::map<std::string,int> mapCalledFun);
 
-std::vector<std::vector<std::string>> pattern2WWR(std::vector<std::vector<std::string>> mainInfo,
+std::vector<std::vector<std::vector<std::string>>>  pattern2WWR(std::vector<std::vector<std::string>> mainInfo,
                                     std::vector<std::vector<std::vector<std::string>>> isrInfo,std::map<std::string,int> mapCalledFun);
 
-std::vector<std::vector<std::string>> pattern3RWW(std::vector<std::vector<std::string>> mainInfo,
+std::vector<std::vector<std::vector<std::string>>>  pattern3RWW(std::vector<std::vector<std::string>> mainInfo,
                                     std::vector<std::vector<std::vector<std::string>>> isrInfo,std::map<std::string,int> mapCalledFun);
 
-std::vector<std::vector<std::string>> pattern4WRW(std::vector<std::vector<std::string>> mainInfo,
+std::vector<std::vector<std::vector<std::string>>>  pattern4WRW(std::vector<std::vector<std::string>> mainInfo,
                                     std::vector<std::vector<std::vector<std::string>>> isrInfo,std::map<std::string,int> mapCalledFun);
 
 
+char * makeJson_test();
 
 #endif //TOOL_H
