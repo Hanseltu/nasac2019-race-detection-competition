@@ -69,4 +69,6 @@ std::vector<std::vector<std::vector<std::string>>>  pattern4WRW(std::vector<std:
 
 char * makeJson_test();
 
+char* makeJson(std::vector<std::vector<std::vector<std::string>>> result,char* desc);
+
 #endif //TOOL_H

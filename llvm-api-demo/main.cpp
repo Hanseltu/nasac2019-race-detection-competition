@@ -106,8 +106,8 @@ int main(int argc, char **argv) {
         //ret = pattern2WWR(mainInfo,isrInfo,mapCalledFun);
         //ret = pattern3RWW(mainInfo,isrInfo,mapCalledFun);
         travers3D(ret);
-
-        char * pJson = makeJson_test();
+        char* desc = "This is a RWR bug !!!";
+        char * pJson = makeJson(ret,desc);
         printf("Results:\n%s\n", pJson);
 
         free(pJson);

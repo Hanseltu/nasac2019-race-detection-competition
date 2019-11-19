@@ -581,6 +581,7 @@ std::vector<std::vector<std::vector<std::string>>>  pattern1RWR(std::vector<std:
             ret.push_back(temp);
         }
     }
+
     return ret;
 }
 
@@ -938,7 +939,7 @@ char * makeJson_test()
 
     cJSON_AddStringToObject(pRoot, " TotalBugs ", "1");
     cJSON_AddStringToObject(pRoot, " BugTypes  ", "1");
-    cJSON_AddItemToObject(pRoot, " Bug ", pSub_1);
+    cJSON_AddItemToObject(pRoot, " Bugs ", pSub_1);
 
     //first bug
     cJSON_AddItemToObject(pSub_1, "Paths ", pSub_2);
@@ -966,4 +967,48 @@ char * makeJson_test()
         return NULL;
     }
     return pJson;
+}
+
+char* makeJson(std::vector<std::vector<std::vector<std::string>>> result, char* desc){
+    cJSON * pRoot = NULL;
+    cJSON * pSub_1 = NULL;
+
+    if((pRoot = cJSON_CreateObject()) == NULL){
+        return NULL;
+    }
+
+    if((pSub_1 = cJSON_CreateObject()) == NULL){
+        return NULL;
+    }
+
+    cJSON_AddStringToObject(pRoot, " TotalBugs ", "1");
+    cJSON_AddStringToObject(pRoot, " BugTypes  ", "1");
+
+
+    cJSON_AddItemToObject(pRoot, " Bugs ", pSub_1);
+    unsigned long size_res = result.size();
+
+    for (int i=0; i<size_res; i++){
+        cJSON * pSub_temp = NULL;
+        if((pSub_temp = cJSON_CreateObject()) == NULL){
+            return NULL;
+        }
+        cJSON_AddItemToObject(pSub_1, "Paths ", pSub_temp);
+        //char* a = "s";
+        cJSON_AddStringToObject(pSub_temp, "FileName ", &result[i][0][3][0]);
+        cJSON_AddStringToObject(pSub_temp, "   Line  ", &result[i][0][2][0]);
+        cJSON_AddStringToObject(pSub_temp, "   Line  ", &result[i][1][2][0]);
+        cJSON_AddStringToObject(pSub_temp, "   Line  ", &result[i][2][2][0]);
+        cJSON_AddStringToObject(pSub_temp, "   Desc  ", desc);
+
+    }
+
+    char * pJson = cJSON_Print(pRoot);
+    if(NULL == pJson)
+    {
+        cJSON_Delete(pRoot);
+        return NULL;
+    }
+    return pJson;
+
 }
