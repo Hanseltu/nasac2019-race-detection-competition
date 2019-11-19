@@ -47,20 +47,22 @@ void travers3D(const std::vector<std::vector<std::vector<std::string>>> &vec_3D)
 
 int findNumberInEnbleFun(Module *M);
 
-void exactInfoFunction(Function *f,int g_count);
+void exactBasicInfoFun(Function *f,int g_count);
+
+void exactGeteleInfoFun(Function *f);
 
 //deal with four patterns
 
 std::vector<std::vector<std::string>> pattern1RWR(std::vector<std::vector<std::string>> mainInfo,
         std::vector<std::vector<std::vector<std::string>>> isrInfo,std::map<std::string,int> mapCalledFun);
 
-std::vector<std::string> pattern2WWR(std::vector<std::vector<std::string>> mainInfo,
+std::vector<std::vector<std::string>> pattern2WWR(std::vector<std::vector<std::string>> mainInfo,
                                     std::vector<std::vector<std::vector<std::string>>> isrInfo,std::map<std::string,int> mapCalledFun);
 
-std::vector<std::string> pattern3RWW(std::vector<std::vector<std::string>> mainInfo,
+std::vector<std::vector<std::string>> pattern3RWW(std::vector<std::vector<std::string>> mainInfo,
                                     std::vector<std::vector<std::vector<std::string>>> isrInfo,std::map<std::string,int> mapCalledFun);
 
-std::vector<std::string> pattern4WRW(std::vector<std::vector<std::string>> mainInfo,
+std::vector<std::vector<std::string>> pattern4WRW(std::vector<std::vector<std::string>> mainInfo,
                                     std::vector<std::vector<std::vector<std::string>>> isrInfo,std::map<std::string,int> mapCalledFun);
 
 

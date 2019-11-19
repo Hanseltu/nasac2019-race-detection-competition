@@ -69,8 +69,9 @@ int main(int argc, char **argv) {
             //global_var.push_back(temp);
 
         }
-
+        //errs() << "test" ;
         int temp_count = findNumberInEnbleFun(Mod);
+        //errs() << "test1";
         errs() << "tem_count : " << temp_count << "\n";
 
         for (auto &f : Mod->getFunctionList()) {
@@ -82,7 +83,8 @@ int main(int argc, char **argv) {
             //for(auto &&bb : f.getBasicBlockList()) {
             //    g_count += 1;
             //}
-            exactInfoFunction(&f,temp_count);
+            exactBasicInfoFun(&f,temp_count);
+            exactGeteleInfoFun(&f);
             //handleNormalFunction(f);
             //handleUnionFunction(f);
 
@@ -96,15 +98,18 @@ int main(int argc, char **argv) {
         std::cout << "Variable in global_var: " << std::endl;
         travers1D(global_var);
         std::cout << "mainInfo: " << std::endl;
-        //travers2D(mainInfo);
+        travers2D(mainInfo);
         std::cout << "isrInfo: " << std::endl;
-        //travers3D(isrInfo);
+        travers3D(isrInfo);
 
         for ( auto m1_Iter = mapCalledFun.begin( ); m1_Iter != mapCalledFun.end( ); m1_Iter++ )
             std::cout <<  m1_Iter->first<<" "<<m1_Iter->second<<std::endl;
 
         std::vector<std::vector<std::string>> ret;
-        ret = pattern1RWR(mainInfo,isrInfo,mapCalledFun);
+        //ret = pattern1RWR(mainInfo,isrInfo,mapCalledFun);
+        //ret = pattern4WRW(mainInfo,isrInfo,mapCalledFun);
+        //ret = pattern2WWR(mainInfo,isrInfo,mapCalledFun);
+        ret = pattern3RWW(mainInfo,isrInfo,mapCalledFun);
         travers2D(ret);
 
         return 0;

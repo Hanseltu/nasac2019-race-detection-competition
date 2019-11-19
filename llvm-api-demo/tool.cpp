@@ -85,7 +85,7 @@ int findNumberInEnbleFun(Module *M){
                                 Value* para = callInst->getArgOperandUse(i);
                                 auto *v = dyn_cast<ConstantInt>(para);
                                 //errs() << v->getValue().getSExtValue();
-                                g_enable_para = v->getValue().getZExtValue();
+                                //g_enable_para = v->getValue();
                                 //errs() << g_enable_para;
                             }
                         }
@@ -107,7 +107,31 @@ int findNumberInEnbleFun(Module *M){
     return ret;
 }
 
-void exactInfoFunction(Function *f,int g_count) {
+void exactGeteleInfoFun(Function *f){
+    for (auto &bb : f->getBasicBlockList()){
+        for (auto &inst : bb){
+            if (!strncmp(inst.getOpcodeName(),"getelementptr",4)){
+                const GetElementPtrInst* GEP = dyn_cast<GetElementPtrInst>(&inst);
+                auto idxNum = GEP->getNumIndices();
+                if(idxNum){
+                    errs() << idxNum << "\n";
+                    for (unsigned int i = 0; i<=idxNum;i++){
+                        if (Value* idx = GEP->getOperand(i)){
+                            //errs() << "hello" ;
+                            errs() << "getelementptr :" << idx->getName().str() ;
+                            if(auto *v = dyn_cast<ConstantInt>(idx)){
+                                errs() << " index :" << v->getValue() << ",";
+                            }
+                            errs() << "\n";
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+void exactBasicInfoFun(Function *f,int g_count) {
     //std::cout << " Function: " << f->getName().str() << std::endl;
     int retCount,retEnablePara;
     std::string fname = f->getName().str();
@@ -354,7 +378,7 @@ void exactInfoFunction(Function *f,int g_count) {
 std::vector<std::vector<std::string>> pattern1RWR(std::vector<std::vector<std::string>> mainInfo,
                                     std::vector<std::vector<std::vector<std::string>>> isrInfo,std::map<std::string,int> mapCalledFun){
 
-    unsigned int size_main = mainInfo.size();
+    //unsigned int size_main = mainInfo.size();
     int enable_para = 0;
     /*
     std::vector<int> size_isr;
@@ -380,6 +404,10 @@ std::vector<std::vector<std::string>> pattern1RWR(std::vector<std::vector<std::s
     travers2D(mainAndIsr);
      */
 
+    //if mainInfo is null
+    if (mainInfo.size()==0){
+        mainInfo = isrInfo[0];
+    }
     //find if there any enbale function
     for ( auto m1_Iter = mapCalledFun.begin( ); m1_Iter != mapCalledFun.end( ); m1_Iter++ ){
         //std::cout <<  m1_Iter->first<<" "<<m1_Iter->second<<std::endl;
@@ -396,11 +424,11 @@ std::vector<std::vector<std::string>> pattern1RWR(std::vector<std::vector<std::s
     std::vector<std::vector<std::string>> temp;
 
     //judge R
-    //for (int i=0; i<global_var.size();i++){
+    for (int i=0; i<global_var.size();i++){
         //errs() << mainAndIsr[i][0] << mainAndIsr[i][1]<< global_var[i];
 
         for (int j=0; j<mainInfo.size();j++) {
-            if (mainInfo[j][0] == "load" && mainInfo[j][1] == global_var[0]) {
+            if (mainInfo[j][0] == "load" && mainInfo[j][1] == global_var[i]) {
                 //ret1.push_back("R#"+mainInfo[j][2]);
                 temp.push_back(mainInfo[j]);
                 //ret1.push_back(mainAndIsr[i][2]);
@@ -412,7 +440,13 @@ std::vector<std::vector<std::string>> pattern1RWR(std::vector<std::vector<std::s
             //continue;
         }
 
-    //}
+    }
+    //delete dup instructions
+    for (int t=0; t<temp.size();t++){
+        if (t>0){
+            temp.erase(temp.begin()+t);
+        }
+    }
     errs() << "temp in first step : " << "\n";
     //travers2D(temp);
     errs() << "temp size in first step : " << temp.size() << "\n";
@@ -460,21 +494,282 @@ std::vector<std::vector<std::string>> pattern1RWR(std::vector<std::vector<std::s
     return temp;
 }
 
-std::vector<std::string> pattern2WWR(std::vector<std::vector<std::string>> mainInfo,
+std::vector<std::vector<std::string>> pattern2WWR(std::vector<std::vector<std::string>> mainInfo,
                                     std::vector<std::vector<std::vector<std::string>>> isrInfo,std::map<std::string,int> mapCalledFun){
-    std::vector<std::string> ret2;
-    return ret2;
+    int enable_para=0;
+    //if mainInfo is null
+    if (mainInfo.size()==0){
+        mainInfo = isrInfo[0];
+    }
+    //find if there any enbale function
+    for ( auto m1_Iter = mapCalledFun.begin( ); m1_Iter != mapCalledFun.end( ); m1_Iter++ ){
+        //std::cout <<  m1_Iter->first<<" "<<m1_Iter->second<<std::endl;
+        std::string it = m1_Iter->first;
+        //errs() << it;
+        if (findSubString(it,"enable")){
+            enable_para = m1_Iter->second;
+            //errs() << "enable_para : " << enable_para << "\n";
+            break;
+        }
+    }
+    errs() << "enable_para : " << enable_para << "\n";
+
+    std::vector<std::vector<std::string>> temp;
+
+    //judge W
+    for (int i=0; i<global_var.size();i++){
+        //errs() << mainAndIsr[i][0] << mainAndIsr[i][1]<< global_var[i];
+
+        for (int j=0; j<mainInfo.size();j++) {
+            if (mainInfo[j][0] == "store" && mainInfo[j][1] == global_var[i]) {
+                //ret1.push_back("R#"+mainInfo[j][2]);
+                temp.push_back(mainInfo[j]);
+                //ret1.push_back(mainAndIsr[i][2]);
+                mainInfo.erase(mainInfo.begin()+j);
+                //errs() << "size of mainInfo after pop :  " << mainInfo.size() << "\n";
+                //errs() << "success";
+                break;
+            }
+            //continue;
+        }
+
+    }
+    //delete dup instructions
+    for (int t=0; t<temp.size();t++){
+        if (t>0){
+            temp.erase(temp.begin()+t);
+        }
+    }
+    errs() << "temp in first step : " << "\n";
+    //travers2D(temp);
+    errs() << "temp size in first step : " << temp.size() << "\n";
+
+    //judge W
+    if (enable_para){
+        for (int j=0; j<isrInfo[enable_para-1].size();j++){
+            if (isrInfo[enable_para-1][j][0] == "store" && isrInfo[enable_para-1][j][1] == temp[0][1]){
+                //ret1.push_back("W#"+isrInfo[enable_para-1][j][2]);
+                temp.push_back(isrInfo[enable_para-1][j]);
+                break;
+            }
+        }
+    }
+    else {
+        for (int i=0; i<isrInfo.size(); i++){
+            for (int j=0; j<isrInfo[i].size();j++){
+                if (isrInfo[i][j][0] == "load" && isrInfo[i][j][1] == temp[0][1]){
+                    //ret1.push_back("W#"+isrInfo[enable_para-1][j][2]);
+                    temp.push_back(isrInfo[i][j]);
+                    break;
+                }
+            }
+        }
+
+    }
+
+    errs() << "temp in second step : " << "\n";
+    //travers2D(temp);
+    errs() << "temp size in second step : " << temp.size() << "\n";
+
+    //judge R
+    std::vector<std::vector<std::string>> temp_store;
+    for (auto &j : mainInfo) {
+        if (j[0] == "store" && j[1] == temp[temp.size()-1][1]){
+            temp_store.push_back(j);
+        }
+    }
+    temp.push_back(temp_store[temp_store.size()-1]);
+
+    errs() << "temp in third step : " << "\n";
+    //travers2D(temp);
+    errs() << "temp size in third step : " << temp.size() << "\n";
+
+    return temp;
 }
 
 
-std::vector<std::string> pattern3RWW(std::vector<std::vector<std::string>> mainInfo,
+std::vector<std::vector<std::string>> pattern3RWW(std::vector<std::vector<std::string>> mainInfo,
                                     std::vector<std::vector<std::vector<std::string>>> isrInfo,std::map<std::string,int> mapCalledFun){
-    std::vector<std::string> ret3;
-    return ret3;
+    int enable_para=0;
+    //if mainInfo is null
+    if (mainInfo.size()==0){
+        mainInfo = isrInfo[0];
+    }
+    //find if there any enbale function
+    for ( auto m1_Iter = mapCalledFun.begin( ); m1_Iter != mapCalledFun.end( ); m1_Iter++ ){
+        //std::cout <<  m1_Iter->first<<" "<<m1_Iter->second<<std::endl;
+        std::string it = m1_Iter->first;
+        //errs() << it;
+        if (findSubString(it,"enable")){
+            enable_para = m1_Iter->second;
+            //errs() << "enable_para : " << enable_para << "\n";
+            break;
+        }
+    }
+    errs() << "enable_para : " << enable_para << "\n";
+
+    std::vector<std::vector<std::string>> temp;
+
+    //judge W
+    for (int i=0; i<global_var.size();i++){
+        //errs() << mainAndIsr[i][0] << mainAndIsr[i][1]<< global_var[i];
+
+        for (int j=0; j<mainInfo.size();j++) {
+            if (mainInfo[j][0] == "load" && mainInfo[j][1] == global_var[i]) {
+                //ret1.push_back("R#"+mainInfo[j][2]);
+                temp.push_back(mainInfo[j]);
+                //ret1.push_back(mainAndIsr[i][2]);
+                mainInfo.erase(mainInfo.begin()+j);
+                //errs() << "size of mainInfo after pop :  " << mainInfo.size() << "\n";
+                //errs() << "success";
+                break;
+            }
+            //continue;
+        }
+
+    }
+    //delete dup instructions
+    for (int t=0; t<temp.size();t++){
+        if (t>0){
+            temp.erase(temp.begin()+t);
+        }
+    }
+    errs() << "temp in first step : " << "\n";
+    //travers2D(temp);
+    errs() << "temp size in first step : " << temp.size() << "\n";
+
+    //judge W
+    if (enable_para){
+        for (int j=0; j<isrInfo[enable_para-1].size();j++){
+            if (isrInfo[enable_para-1][j][0] == "store" && isrInfo[enable_para-1][j][1] == temp[0][1]){
+                //ret1.push_back("W#"+isrInfo[enable_para-1][j][2]);
+                temp.push_back(isrInfo[enable_para-1][j]);
+                break;
+            }
+        }
+    }
+    else {
+        for (int i=0; i<isrInfo.size(); i++){
+            for (int j=0; j<isrInfo[i].size();j++){
+                if (isrInfo[i][j][0] == "store" && isrInfo[i][j][1] == temp[0][1]){
+                    //ret1.push_back("W#"+isrInfo[enable_para-1][j][2]);
+                    temp.push_back(isrInfo[i][j]);
+                    break;
+                }
+            }
+        }
+
+    }
+
+    errs() << "temp in second step : " << "\n";
+    //travers2D(temp);
+    errs() << "temp size in second step : " << temp.size() << "\n";
+
+    //judge R
+    std::vector<std::vector<std::string>> temp_store;
+    for (auto &j : mainInfo) {
+        if (j[0] == "store" && j[1] == temp[temp.size()-1][1]){
+            temp_store.push_back(j);
+        }
+    }
+    temp.push_back(temp_store[temp_store.size()-1]);
+
+    errs() << "temp in third step : " << "\n";
+    //travers2D(temp);
+    errs() << "temp size in third step : " << temp.size() << "\n";
+
+    return temp;
 }
 
-std::vector<std::string> pattern4WRW(std::vector<std::vector<std::string>> mainInfo,
+std::vector<std::vector<std::string>> pattern4WRW(std::vector<std::vector<std::string>> mainInfo,
                                     std::vector<std::vector<std::vector<std::string>>> isrInfo,std::map<std::string,int> mapCalledFun){
-    std::vector<std::string> ret4;
-    return ret4;
+    int enable_para=0;
+    //if mainInfo is null
+    if (mainInfo.size()==0){
+        mainInfo = isrInfo[0];
+    }
+    //find if there any enbale function
+    for ( auto m1_Iter = mapCalledFun.begin( ); m1_Iter != mapCalledFun.end( ); m1_Iter++ ){
+        //std::cout <<  m1_Iter->first<<" "<<m1_Iter->second<<std::endl;
+        std::string it = m1_Iter->first;
+        //errs() << it;
+        if (findSubString(it,"enable")){
+            enable_para = m1_Iter->second;
+            //errs() << "enable_para : " << enable_para << "\n";
+            break;
+        }
+    }
+    errs() << "enable_para : " << enable_para << "\n";
+
+    std::vector<std::vector<std::string>> temp;
+
+    //judge W
+    for (int i=0; i<global_var.size();i++){
+        //errs() << mainAndIsr[i][0] << mainAndIsr[i][1]<< global_var[i];
+
+        for (int j=0; j<mainInfo.size();j++) {
+            if (mainInfo[j][0] == "store" && mainInfo[j][1] == global_var[i]) {
+                //ret1.push_back("R#"+mainInfo[j][2]);
+                temp.push_back(mainInfo[j]);
+                //ret1.push_back(mainAndIsr[i][2]);
+                mainInfo.erase(mainInfo.begin()+j);
+                //errs() << "size of mainInfo after pop :  " << mainInfo.size() << "\n";
+                //errs() << "success";
+                break;
+            }
+            //continue;
+        }
+
+    }
+    //delete dup instructions
+    for (int t=0; t<temp.size();t++){
+        if (t>0){
+            temp.erase(temp.begin()+t);
+        }
+    }
+    errs() << "temp in first step : " << "\n";
+    //travers2D(temp);
+    errs() << "temp size in first step : " << temp.size() << "\n";
+
+    //judge W
+    if (enable_para){
+        for (int j=0; j<isrInfo[enable_para-1].size();j++){
+            if (isrInfo[enable_para-1][j][0] == "load" && isrInfo[enable_para-1][j][1] == temp[0][1]){
+                //ret1.push_back("W#"+isrInfo[enable_para-1][j][2]);
+                temp.push_back(isrInfo[enable_para-1][j]);
+                break;
+            }
+        }
+    }
+    else {
+        for (int i=0; i<isrInfo.size(); i++){
+            for (int j=0; j<isrInfo[i].size();j++){
+                if (isrInfo[i][j][0] == "load" && isrInfo[i][j][1] == temp[0][1]){
+                    //ret1.push_back("W#"+isrInfo[enable_para-1][j][2]);
+                    temp.push_back(isrInfo[i][j]);
+                    break;
+                }
+            }
+        }
+
+    }
+
+    errs() << "temp in second step : " << "\n";
+    //travers2D(temp);
+    errs() << "temp size in second step : " << temp.size() << "\n";
+
+    //judge R
+    std::vector<std::vector<std::string>> temp_store;
+    for (auto &j : mainInfo) {
+        if (j[0] == "store" && j[1] == temp[temp.size()-1][1]){
+            temp_store.push_back(j);
+        }
+    }
+    temp.push_back(temp_store[temp_store.size()-1]);
+
+    errs() << "temp in third step : " << "\n";
+    //travers2D(temp);
+    errs() << "temp size in third step : " << temp.size() << "\n";
+
+    return temp;
 }
