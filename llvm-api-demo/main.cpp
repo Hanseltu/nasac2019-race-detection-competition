@@ -10,6 +10,8 @@ std::vector<std::string> global_union;
 
 std::map<std::string,int> mapCalledFun;
 
+std::map<std::string,std::vector<std::vector<std::string>>> allFunInfo;
+
 
 int g_enable_para;
 
@@ -68,49 +70,115 @@ int main(int argc, char **argv) {
         //errs() << "test1";
         errs() << "tem_count : " << temp_count << "\n";
 
-        for (auto &f : Mod->getFunctionList()) {
-            //int count,temp_count;
-            //std::vector<int> ret;
-
-            //g_count = findNumberInEnbleFun(f,g_count);
-            //errs() << "temp_count" << temp_count ;
-            //for(auto &&bb : f.getBasicBlockList()) {
-            //    g_count += 1;
-            //}
-            exactBasicInfoFun(&f,temp_count);
-            exactGeteleInfoFun(&f);
-            //handleNormalFunction(f);
-            //handleUnionFunction(f);
-
+        //get allFunInfo
+        std::map<std::string,std::vector<std::vector<std::string>>> retAllFunInfo;
+        retAllFunInfo = exactAllFunInfo(Mod);
+        //errs() << "size of retAllFunInfo : " << retAllFunInfo.size() << "\n";
+        //errs() << "allFunInfo : " << "\n";
+        for ( auto m1_Iter = retAllFunInfo.begin( ); m1_Iter != retAllFunInfo.end( ); m1_Iter++ ) {
+            //std::cout << m1_Iter->first << " \n";
+            std::vector<std::vector<std::string>> t = m1_Iter->second;
+            if (t.size()){
+                //travers2D(t);
+            }
+            //
         }
 
-       std::string a = "dlut_nefu";
+        //get number of init function
+        int retFindNumberInitFun;
+        retFindNumberInitFun = findNumberInitFun(Mod);
+        errs() << "retFindNumberInitFun = " << retFindNumberInitFun << "\n";
+
+
+        for (auto &f : Mod->getFunctionList()) {
+
+            exactBasicInfoFun(&f,temp_count,retFindNumberInitFun);
+            exactGeteleInfoFun(&f);
+        }
+
+        std::string a = "dlut_nefu";
        //errs() << "test findSubString " << findSubString(a,"dlut") << "\n";
        //errs() << "count_final " << temp_count;
         //errs() << g_count << g_enable_para;
         //
         std::cout << "Variable in global_var: " << std::endl;
-        //travers1D(global_var);
+        travers1D(global_var);
         std::cout << "mainInfo: " << std::endl;
-        //travers2D(mainInfo);
+        travers2D(mainInfo);
         std::cout << "isrInfo: " << std::endl;
-        //travers3D(isrInfo);
+        travers3D(isrInfo);
 
         for ( auto m1_Iter = mapCalledFun.begin( ); m1_Iter != mapCalledFun.end( ); m1_Iter++ )
             std::cout <<  m1_Iter->first<<" "<<m1_Iter->second<<std::endl;
 
-        std::vector<std::vector<std::vector<std::string>>> ret;
+        std::vector<std::vector<std::vector<std::string>>> ret1RWR;
+        std::vector<std::vector<std::vector<std::string>>> ret2WWR;
+        std::vector<std::vector<std::vector<std::string>>> ret3RWW;
+        std::vector<std::vector<std::vector<std::string>>> ret4WRW;
 
-        ret = pattern1RWR(mainInfo,isrInfo,mapCalledFun);
-        //ret = pattern4WRW(mainInfo,isrInfo,mapCalledFun);
-        //ret = pattern2WWR(mainInfo,isrInfo,mapCalledFun);
-        //ret = pattern3RWW(mainInfo,isrInfo,mapCalledFun);
-        travers3D(ret);
-        char* desc = "This is a RWR bug !!!";
-        char * pJson = makeJson(ret,desc);
-        printf("Results:\n%s\n", pJson);
+        const char* desc1RWR = "This is a RWR bug !!!";
+        const char* desc2WWR = "This is a WWR bug !!!";
+        const char* desc3RWW = "This is a RWW bug !!!";
+        const char* desc4WRW = "This is a WRW bug !!!";
 
-        free(pJson);
+        ret1RWR = pattern1RWR(mainInfo,isrInfo,mapCalledFun);
+        ret2WWR = pattern2WWR(mainInfo,isrInfo,mapCalledFun);
+        ret3RWW = pattern3RWW(mainInfo,isrInfo,mapCalledFun);
+        ret4WRW = pattern4WRW(mainInfo,isrInfo,mapCalledFun);
+
+        //travers3D(ret1RWR);
+        //travers3D(ret2WWR);
+        //travers3D(ret3RWW);
+        //travers3D(ret4WRW);
+
+        FILE *fp;
+        //char* s= "hello world！";
+        //char*filename = argv[1];
+        //sprintf(filename,"%d.txt",i);
+
+        fp = fopen("/Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/output/file.txt","a");
+
+        if (!ret1RWR.empty()){
+            char * pJson = makeJson(ret1RWR,desc1RWR);
+            printf("Bugs found in RWR :\n%s\n", pJson);
+            fprintf(fp,"%s \n",pJson);
+            //travers3D(ret1RWR);
+            free(pJson);
+        }
+
+        if (!ret2WWR.empty()){
+            char * pJson = makeJson(ret2WWR,desc2WWR);
+            printf("Bugs found in WWR :\n%s\n", pJson);
+            fprintf(fp,"%s \n",pJson);
+            //travers3D(ret2WWR);
+            free(pJson);
+        }
+
+        if (!ret3RWW.empty()){
+            char * pJson = makeJson(ret3RWW,desc3RWW);
+            printf("Bugs found in RWW :\n%s\n", pJson);
+            fprintf(fp,"%s \n",pJson);
+            travers3D(ret3RWW);
+            free(pJson);
+        }
+
+        if (!ret4WRW.empty()){
+            char * pJson = makeJson(ret4WRW,desc4WRW);
+            printf("Bugs found in WRW :\n%s\n", pJson);
+            fprintf(fp,"%s \n",pJson);
+            //travers3D(ret4WRW);
+            free(pJson);
+        }
+
+        //char * pJson = makeJson(ret,desc);
+        //printf("Results:\n%s\n", pJson);
+
+        //write to file
+
+        //fprintf(fp,"%s \n",s);
+        fclose(fp);
+
+
 
         return 0;
 }

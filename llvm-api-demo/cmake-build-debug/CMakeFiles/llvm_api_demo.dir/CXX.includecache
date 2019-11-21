@@ -52,10 +52,6 @@ utility
 
 /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/cJSON.h
 
-/Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/main.cpp
-tool.h
-/Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/tool.h
-
 /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/tool.cpp
 tool.h
 /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/tool.h
@@ -83,6 +79,8 @@ llvm/IR/Instructions.h
 /Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/llvm/IR/Instructions.h
 /Users/tuhaoxin/LLVM/llvm/lib/IR/ConstantsContext.h
 -
+llvm/IR/Operator.h
+/Users/tuhaoxin/github/nasac2019-race-detection-competition/llvm-api-demo/llvm/IR/Operator.h
 vector
 -
 string

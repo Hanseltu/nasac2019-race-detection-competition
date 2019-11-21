@@ -35,7 +35,7 @@ void svp_simple_023_001_func_1(int var) {
   }
 }
 void svp_simple_023_001_isr_1() {
-  svp_simple_023_001_global_var = 0;
+  svp_simple_023_001_global_var = 0
 }
 
 // 1: svp_simple_023_001_global_var <R, #24>, <W, #38>, <R, #34> 

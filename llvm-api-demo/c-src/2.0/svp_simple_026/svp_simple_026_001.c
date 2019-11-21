@@ -26,7 +26,7 @@ int svp_simple_026_001_main() {
   if (svp_simple_026_001_gloable_var > 12) {
     svp_simple_026_001_gloable_var = 0;
   }
-  //enable_isr(1);
+  enable_isr(1);
 
   return 0;
 }

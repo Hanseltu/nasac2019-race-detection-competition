@@ -15,6 +15,7 @@
 #include "llvm/IR/DebugInfo.h"
 #include "llvm/IR/Instructions.h"
 #include "/Users/tuhaoxin/LLVM/llvm/lib/IR/ConstantsContext.h"
+#include "llvm/IR/Operator.h"
 #include <vector>
 #include <string>
 #include <regex>
@@ -33,6 +34,8 @@ extern std::vector<std::string> global_array;
 extern std::vector<std::string> global_union;
 
 extern std::map<std::string,int> mapCalledFun;
+extern std::map<std::string,std::vector<std::vector<std::string>>> allFunInfo;
+
 
 
 extern int g_enable_para;
@@ -48,10 +51,13 @@ void travers3D(const std::vector<std::vector<std::vector<std::string>>> &vec_3D)
 
 int findNumberInEnbleFun(Module *M);
 
-void exactBasicInfoFun(Function *f,int g_count);
+void exactBasicInfoFun(Function *f,int g_count,int g_init);
 
 void exactGeteleInfoFun(Function *f);
 
+std::map<std::string,std::vector<std::vector<std::string>>> exactAllFunInfo (Module *M);
+
+int findNumberInitFun(Module *M);
 //deal with four patterns
 
 std::vector<std::vector<std::vector<std::string>>>  pattern1RWR(std::vector<std::vector<std::string>> mainInfo,
@@ -69,6 +75,6 @@ std::vector<std::vector<std::vector<std::string>>>  pattern4WRW(std::vector<std:
 
 char * makeJson_test();
 
-char* makeJson(std::vector<std::vector<std::vector<std::string>>> result,char* desc);
+char* makeJson(std::vector<std::vector<std::vector<std::string>>> result,const char* desc);
 
 #endif //TOOL_H
