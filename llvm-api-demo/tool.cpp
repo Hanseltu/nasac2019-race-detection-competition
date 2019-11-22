@@ -380,7 +380,7 @@ void exactBasicInfoFun(Function *f,int g_count,int g_init) {
             //errs() << "cnt " << cnt << " \n";
             //std::cout << "  BasicBlock: " << bb.getName().str() << std::endl;
             //errs() << g_count << " " << "\n";
-            if (cnt > g_count) {
+            if (cnt > 0) {
 
                 for (auto &inst : bb) {
                     if (!strncmp(inst.getOpcodeName(), "call", 4)) {
@@ -389,7 +389,7 @@ void exactBasicInfoFun(Function *f,int g_count,int g_init) {
                     }
                     //errs() << "hello cnt_init : " << cnt_init << "\n";
                     //errs() << "hello g_init : " << g_init << "\n";
-                   if (cnt_init > g_init) {
+                   //if (cnt_init > g_init) {
                     //auto *ci = cast<CallInst>(inst);
                     //errs() << ci->getCalledFunction()->getName().str();
                     std::vector<std::string> temp;
@@ -566,10 +566,10 @@ void exactBasicInfoFun(Function *f,int g_count,int g_init) {
 
                 }
             }
-          }
+          //}
         }
     }
-    if (findSubString(fname, "_isr_")) {
+    if (findSubString(fname, "isr")) {
         //errs() << findSubString(fname,"_isr_");
         std::vector<std::vector<std::string>> temp_isr;
         for (auto &bb : f->getBasicBlockList()) {
@@ -986,7 +986,7 @@ std::vector<std::vector<std::vector<std::string>>> pattern2WWR(std::vector<std::
 
             }
             else {
-              //mainInfo.erase(mainInfo.begin() + j);
+             mainInfo.erase(mainInfo.begin() + j);
             }
 
             //break;
@@ -1279,7 +1279,7 @@ std::vector<std::vector<std::vector<std::string>>> pattern4WRW(std::vector<std::
 
             }
             else {
-               // mainInfo.erase(mainInfo.begin() + j);
+               //mainInfo.erase(mainInfo.begin() + j);
             }
 
             //continue;

@@ -72,7 +72,7 @@ int main(int argc, char **argv) {
 
         //get allFunInfo
         std::map<std::string,std::vector<std::vector<std::string>>> retAllFunInfo;
-        retAllFunInfo = exactAllFunInfo(Mod);
+        //retAllFunInfo = exactAllFunInfo(Mod);
         //errs() << "size of retAllFunInfo : " << retAllFunInfo.size() << "\n";
         //errs() << "allFunInfo : " << "\n";
         for ( auto m1_Iter = retAllFunInfo.begin( ); m1_Iter != retAllFunInfo.end( ); m1_Iter++ ) {
@@ -121,10 +121,10 @@ int main(int argc, char **argv) {
         const char* desc3RWW = "This is a RWW bug !!!";
         const char* desc4WRW = "This is a WRW bug !!!";
 
-        ret1RWR = pattern1RWR(mainInfo,isrInfo,mapCalledFun);
-        ret2WWR = pattern2WWR(mainInfo,isrInfo,mapCalledFun);
+        //ret1RWR = pattern1RWR(mainInfo,isrInfo,mapCalledFun);
+        //ret2WWR = pattern2WWR(mainInfo,isrInfo,mapCalledFun);
         ret3RWW = pattern3RWW(mainInfo,isrInfo,mapCalledFun);
-        ret4WRW = pattern4WRW(mainInfo,isrInfo,mapCalledFun);
+        //ret4WRW = pattern4WRW(mainInfo,isrInfo,mapCalledFun);
 
         //travers3D(ret1RWR);
         //travers3D(ret2WWR);
