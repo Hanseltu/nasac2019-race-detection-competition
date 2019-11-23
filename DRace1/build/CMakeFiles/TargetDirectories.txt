@@ -1,0 +1,6 @@
+/Users/tuhaoxin/Downloads/DRace1/build/CMakeFiles/rebuild_cache.dir
+/Users/tuhaoxin/Downloads/DRace1/build/CMakeFiles/edit_cache.dir
+/Users/tuhaoxin/Downloads/DRace1/build/CMakeFiles/intrinsics_gen.dir
+/Users/tuhaoxin/Downloads/DRace1/build/src/CMakeFiles/rebuild_cache.dir
+/Users/tuhaoxin/Downloads/DRace1/build/src/CMakeFiles/edit_cache.dir
+/Users/tuhaoxin/Downloads/DRace1/build/src/CMakeFiles/DRace.dir
